@@ -5,10 +5,18 @@
   "main": "src/app.js",
   "scripts": {
     "start": "webpack-dev-server",
-	"dev": "ip=`ipconfig getifaddr en0`; webpack-dev-server --https --host $ip",
+    "dev": "ip=`ipconfig getifaddr en0`; webpack-dev-server --https --host $ip",
     "build": "webpack --optimize-minimize"
   },
-  "keywords": ["dawn","dusk","sunset","sunrise","twilight","alarm","clock"],
+  "keywords": [
+    "dawn",
+    "dusk",
+    "sunset",
+    "sunrise",
+    "twilight",
+    "alarm",
+    "clock"
+  ],
   "author": "Jorge Moreno aka moro.es (@alterebro)",
   "license": "ISC",
   "devDependencies": {
@@ -20,7 +28,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
     "style-loader": "^0.13.1",
-    "suncalc": "^1.7.0",
     "vue": "^2.0.8",
     "webpack": "^1.13.3"
   }
