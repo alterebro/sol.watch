@@ -2,6 +2,10 @@
   "name": "dawn.clock",
   "version": "1.0.0",
   "description": "Dawn Alarm Clock",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alterebro/sol.watch.git"
+  },
   "main": "src/app.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -19,6 +23,7 @@
   ],
   "author": "Jorge Moreno aka moro.es (@alterebro)",
   "license": "ISC",
+  "homepage": "https://alterebro.github.io/sol.watch/",
   "devDependencies": {
     "@fdaciuk/ajax": "^2.1.2",
     "babel-core": "^6.18.2",
