@@ -24,7 +24,7 @@ new Vue({
 
 	created() {
 
-		this.geoPosition(); 
+		this.geoPosition();
 	},
 
 	watch : {
@@ -195,40 +195,36 @@ new Vue({
 			}
 		},
 
-
 		// drawing
-		rot : function(deg) {
-			deg = (!!deg) ? parseInt(deg) : 0;
-			return 'rotate('+deg+' '+(this.config.svg_size/2)+' '+(this.config.svg_size/2)+')';
+		rot(deg = 0) {
+			return 'rotate('+parseInt(deg)+' '+(this.config.svg_size/2)+' '+(this.config.svg_size/2)+')';
 		},
-		arc : function(start_deg, end_deg, inc) {
+
+		arc(start_deg, end_deg, inc) {
 
 			function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-				var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+				let angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
 				return {
 					x: centerX + (radius * Math.cos(angleInRadians)),
 					y: centerY + (radius * Math.sin(angleInRadians))
-				};
+				}
 			}
 
-			var x = this.config.svg_size/2;
-			var y = this.config.svg_size/2;
-			var radius = this.config.svg_size/2;
+			let size = this.config.svg_size/2
+			let x = size,
+				y = size,
+				radius = size;
 
-			var start = polarToCartesian(x, y, radius+inc, end_deg);
-			var end = polarToCartesian(x, y, radius+inc, start_deg);
+			let start = polarToCartesian(x, y, radius+inc, end_deg);
+			let end = polarToCartesian(x, y, radius+inc, start_deg);
+			let largeArcFlag = end_deg - start_deg <= 180 ? "0" : "1";
 
-			var largeArcFlag = end_deg - start_deg <= 180 ? "0" : "1";
-			var d = [
+			return [
 				"M", start.x, start.y,
 				"A", radius+inc, radius+inc, 0, largeArcFlag, 0, end.x, end.y,
 				"L", x, y, "Z"
 			].join(" ");
-
-			return d;
 		},
-
-
 
 	},
 
