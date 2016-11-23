@@ -68,7 +68,7 @@
 				<circle :cx="config.svg_size/2" :cy="config.svg_size/2" :r="(config.svg_size/2)" fill="#000" />
 				<path :d="arc(360-now.rest, 360, 5)" fill="#fff" />
 			</g>
-			<g :transform="rot(-now.degrees)">
+			<g :style="{ 'transform': 'rotate('+(-now.degrees)+'deg)', 'transform-origin': (config.svg_size/2)+'px '+ (config.svg_size/2)+'px'}">
 				<g mask="url(#circle-clip)">
 					<path :d="arc(stages.night_m.from, stages.night_m.to, -20)" fill="#000" />
 					<path :d="arc(stages.night_e.from, stages.night_e.to, -20)" fill="#000" />
