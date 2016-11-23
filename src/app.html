@@ -41,9 +41,9 @@
 </head>
 <body>
 
-<div id="app" :class="current_class">
+<div id="app" :class="current_class" v-cloak>
 
-	<div id="loader" :class="[{ loaded : app_ready }, current_class]">
+	<div id="loader" :class="[{ loaded : app_ready }]">
 		<div id="loader-spin"></div>
 	</div>
 
