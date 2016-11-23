@@ -19,7 +19,8 @@ new Vue({
 			location : 'Zaragoza, Spain',
 			refresh_rate : 650,
 			svg_size : 400
-		}
+		},
+		current_class : 'day'
 	},
 
 	created() {
@@ -56,6 +57,7 @@ new Vue({
 					break;
 				}
 			}
+			if ( !!current_stage ) { this.current_class = current_stage.class }
 			return current_stage;
 		}
 	},

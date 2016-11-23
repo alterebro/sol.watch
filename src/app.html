@@ -41,7 +41,11 @@
 </head>
 <body>
 
-<div id="app" :class="current_stage.class">
+<div id="app" :class="current_class">
+
+	<div id="loader" :class="[{ loaded : app_ready }, current_class]">
+		<div id="loader-spin"></div>
+	</div>
 
 	<div id="clock" v-if="app_ready">
 		<div id="clock-stg">{{ now.degrees | leading_zeros }}&deg;</div>

@@ -28,18 +28,79 @@ body {
 	transition: all 0.5s ease-out;
 }
 
+.day 		{ background: #c58b00; }
+.twilight 	{ background: #637234; }
+.night 		{ background: #005869; }
+.night svg {
+	rect#clock-indicator-long  { fill: #000; }
+	rect#clock-indicator-short { fill: #fff; }
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate( 0deg ); }
+    to { -webkit-transform: rotate( 360deg ); }
+}
+@keyframes spin {
+    from { transform:rotate( 0deg ); }
+    to { transform:rotate( 360deg ); }
+}
+
+#loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 1;
+
+	&.loaded {
+		background: transparent;
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	#loader-spin {
+		display: block;
+		width: 60px;
+		height: 60px;
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&:before,
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+		}
+		&:before {
+			border: solid #fff 12px;
+			border-left-color: rgba(255, 255, 255, .5);
+			border-top-color: rgba(255, 255, 255, .5);
+			-webkit-animation: spin 2s infinite linear;
+			animation: spin 2.4s infinite ease-in-out;
+		}
+		&:after {
+			border: solid #000 12px;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			-webkit-animation: spin 2.8s infinite linear;
+			animation: spin 2.8s infinite linear;
+		}
+	}
+}
+
 #app {
 
 	height: 100%;
 	width: 100%;
-	&.day 		{ background: #c58b00; }
-	&.twilight 	{ background: #637234; }
-	&.night 	{ background: #005869; }
-
-	&.night svg {
-		rect#clock-indicator-long { fill: #000; }
-		rect#clock-indicator-short { fill: #fff; }
-	}
 
 	#clock {
 		width: 400px;
