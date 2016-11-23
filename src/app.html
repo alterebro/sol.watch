@@ -55,7 +55,7 @@
 		<svg v-if="current_stage" :width="config.svg_size" :height="config.svg_size" xmlns="http://www.w3.org/2000/svg">
 			<defs>
 				<mask id="rest-clip">
-					<rect :width="config.svg_size" :height="config.svg_size" fill="#fff"></rect>
+					<circle :cx="config.svg_size/2" :cy="config.svg_size/2" :r="(config.svg_size/2)" fill="#fff" />
 					<circle :cx="config.svg_size/2" :cy="config.svg_size/2" :r="(config.svg_size/2)-4" />
 					<rect v-for="n in 180" :x="(config.svg_size/2)-1" :y="0" :width="2" :height="config.svg_size" :transform="rot((n-1)*1)"></rect>
 				</mask>
@@ -66,7 +66,7 @@
 			</defs>
 			<g mask="url(#rest-clip)">
 				<circle :cx="config.svg_size/2" :cy="config.svg_size/2" :r="(config.svg_size/2)" fill="#000" />
-				<path :d="arc(360-now.rest, 360)" fill="#fff" />
+				<path :d="arc(360-now.rest, 360, 5)" fill="#fff" />
 			</g>
 			<g :transform="rot(-now.degrees)">
 				<g mask="url(#circle-clip)">
