@@ -41,7 +41,6 @@
 </head>
 <body>
 
-
 <div id="app" :class="current_stage.class">
 
 	<div id="clock" v-if="app_ready">
@@ -53,8 +52,7 @@
 			<span id="clock-txt-before">before</span>
 			<span id="clock-txt-next">{{ current_stage.end | eventize }}</span>
 		</div>
-
-		<svg :width="config.svg_size" :height="config.svg_size" xmlns="http://www.w3.org/2000/svg">
+		<svg v-if="current_stage" :width="config.svg_size" :height="config.svg_size" xmlns="http://www.w3.org/2000/svg">
 			<defs>
 				<mask id="rest-clip">
 					<rect :width="config.svg_size" :height="config.svg_size" fill="#fff"></rect>
@@ -68,7 +66,7 @@
 			</defs>
 			<g mask="url(#rest-clip)">
 				<circle :cx="config.svg_size/2" :cy="config.svg_size/2" :r="(config.svg_size/2)" fill="#000" />
-				<path :d="arc(360-now.rest, 360, 0)" fill="#fff" />
+				<path :d="arc(360-now.rest, 360)" fill="#fff" />
 			</g>
 			<g :transform="rot(-now.degrees)">
 				<g mask="url(#circle-clip)">
@@ -93,10 +91,8 @@
 		</svg>
 	</div>
 
-	<input id="force-location" type="button" @click="forceGeoPosition" value="Force GeoLocation Request">
-
+	<input id="force-location" type="button" @click="forceGeoPosition" value="Force GeoLocation Request" />
 </div>
-
 
 </body>
 </html>

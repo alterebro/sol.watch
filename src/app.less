@@ -1,6 +1,6 @@
 @breakpoint-mobile : 420;
-@mobile 	: ~"all and (max-width: @{breakpoint-mobile}px)";
-@non-mobile : ~"all and (min-width: @{breakpoint-mobile}px)";
+@mobile 	: ~"all and (max-width: @{breakpoint-mobile}px), (max-height: @{breakpoint-mobile}px)";
+@non-mobile : ~"all and (min-width: @{breakpoint-mobile}px), (min-height: @{breakpoint-mobile}px)";
 
 html, body {
 	margin: 0;

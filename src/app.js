@@ -200,7 +200,7 @@ new Vue({
 			return 'rotate('+parseInt(deg)+' '+(this.config.svg_size/2)+' '+(this.config.svg_size/2)+')';
 		},
 
-		arc(start_deg, end_deg, inc) {
+		arc( start_deg=0, end_deg=0, inc=0 ) {
 
 			function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 				let angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
