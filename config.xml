@@ -18,12 +18,7 @@
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
-    <plugin name="cordova-plugin-geolocation" />
-    <plugin name="cordova-plugin-splashscreen" />
-
     <icon src="assets/images/favicon.png" />
-	<splash src="assets/images/sol-watch.jpg" />
-
     <access origin="*"/>
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
