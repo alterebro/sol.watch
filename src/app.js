@@ -20,7 +20,8 @@ new Vue({
 			refresh_rate : 650,
 			svg_size : 400
 		},
-		current_class : 'day'
+		current_class : 'day',
+		show_sidebar : false
 	},
 
 	created() {
@@ -62,7 +63,17 @@ new Vue({
 		}
 	},
 	methods : {
-		forceGeoPosition() { this.geoPosition(true) },
+
+		sidebar() {
+
+			this.show_sidebar = !this.show_sidebar;
+
+		},
+
+		forceGeoPosition() {
+			this.geoPosition(true)
+			this.sidebar()
+		},
 
 		geoPosition( remove_cache = false ) {
 

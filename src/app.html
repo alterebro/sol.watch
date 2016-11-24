@@ -43,9 +43,39 @@
 
 <div id="app" :class="current_class" v-cloak>
 
-	<div id="loader" :class="[{ loaded : app_ready }]">
+	<div id="switch" :class="{ opened : show_sidebar }">
+		<a @click="sidebar">&equiv;</a>
+	</div>
+
+	<div id="sidebar" :class="{ opened : show_sidebar }">
+		<div id="sidebar-background"></div>
+		<div id="sidebar-content" :class="current_class">
+			<div class="sidebar-text">
+				<h1>SolWatch: GeoPositioned Sun Clock</h1>
+				<p>
+					<strong>SolWatch</strong> is a Sun clock that visualizes the Solar phases
+					depending on your current location.
+					<br />
+					It doesn-t give you the time but instead it shows the rotation degrees
+					left to the next Solar Event based on the geographical position of the request.
+				</p>
+
+				<h2>Current Location</h2>
+				<ul>
+					<li>Latitude: <strong>{{ geoposition.latitude }}</strong></li>
+					<li>Longitude: <strong>{{ geoposition.longitude }}</strong></li>
+					<li>Location: <strong>{{ geoposition.location }}</strong></li>
+				</ul>
+				<button @click="forceGeoPosition">Force GeoLocation Request</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="loader" :class="{ loaded : app_ready }">
+		<div id="loader-background"></div>
 		<div id="loader-spin"></div>
 	</div>
+
 
 	<div id="clock" v-if="app_ready">
 		<div id="clock-stg">{{ now.degrees | leading_zeros }}&deg;</div>
@@ -94,8 +124,6 @@
 			</g>
 		</svg>
 	</div>
-
-	<input id="force-location" type="button" @click="forceGeoPosition" value="Force GeoLocation Request" />
 </div>
 
 </body>
