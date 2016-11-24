@@ -232,17 +232,16 @@ body {
 
 	.sidebar-text {
 		h1, h2 {
+			font-size: 1.6rem;
 			font-weight: 400;
 			text-transform: uppercase;
 			color: rgba(255, 255, 255, .75);
 		}
 		h1 {
-			font-size: 1.8rem;
-			margin: 0 0 20px 0;
+			margin: 0 0 10px 0;
 		}
 		h2 {
-			font-size: 1.6rem;
-			margin: 0 0 10px 0;
+			margin: 10px 0;
 		}
 		p, ul {
 			font-family: 'Helvetica Neue', Helvetica, serif;
@@ -251,10 +250,10 @@ body {
 			text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
 		}
 		p {
-			margin: 0 0 30px 0;
+			margin: 0 0 20px 0;
 		}
 		ul {
-			margin: 0 0 10px 20px;
+			margin: 0 0 20px 20px;
 			padding: 0;
 
 			li {
@@ -262,7 +261,22 @@ body {
 				padding: 0;
 			}
 		}
+		a {
+			text-decoration: none;
+			color: #fff;
+			border-bottom: solid rgba(255, 255, 255, .5) 1px;
+		}
+		a:hover {
+			background: rgba(0, 0, 0, .1);
+			border-bottom: solid rgba(255, 255, 255, 1) 1px;
+		}
 
+		p#credits {
+			margin: 30px 0 0 0;
+			border-top: dotted rgba(255, 255, 255, .5) 1px;
+			padding: 20px 0 0 0;
+			font-size: 1.2rem;
+		}
 		button {
 			font-family: inherit;
 			cursor: pointer;

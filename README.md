@@ -1,6 +1,12 @@
-# sol.watch
+# Sol Watch 
 
-ES6 Sun Clock : **[alterebro.github.io/sol.watch](https://alterebro.github.io/sol.watch/)**
+## ES6 GeoPosition-based Sun Clock : [alterebro.github.io/sol.watch](https://alterebro.github.io/sol.watch/)
+
+**Sol Watch** is a Sun clock that calculates the solar phases depending of your current geographical coordinates ( [https://alterebro.github.io/sol.watch/](https://alterebro.github.io/sol.watch/) ) 
+
+---
+
+Web Application built using ES6 / Webpack / Vue.js
 
 ```sh
 # Runs webpack development server on localhost:8080
@@ -14,3 +20,7 @@ $ npm run dev
 # ( optimize / minify / uglify )
 $ npm run build
 ```
+
+---
+
+— **[@alterebro](https://twitter.com/alterebro)**
