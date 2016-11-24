@@ -17,7 +17,7 @@ new Vue({
 			latitude : 41.6453,
 			longitude : -0.8849,
 			location : 'Zaragoza, Spain',
-			refresh_rate : 650,
+			refresh_rate : (240000/360),
 			svg_size : 400
 		},
 		current_class : 'day',
