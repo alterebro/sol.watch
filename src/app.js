@@ -62,10 +62,10 @@ new Vue({
 			let data = this.getData()
 			this.cycle = data.cycle
 			this.stages = data.stages
-			console.log('init yo!')
 		},
 
 		reset_app() {
+
 			this.now = {}
 			this.cycle = {}
 			this.stages = {}
@@ -74,10 +74,10 @@ new Vue({
 		sidebar() {
 
 			this.show_sidebar = !this.show_sidebar;
-
 		},
 
 		forceGeoPosition() {
+
 			this.geoPosition(true)
 			this.sidebar()
 		},
