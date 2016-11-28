@@ -120,13 +120,13 @@ new Vue({
 				} else {
 					// Error getting position. Show defaults or cached and alert.
 					let local = localStorage.getItem('dawn.clock.geoposition.values')
-					pos = (local) ? JSON.parse(local) : {
+					pos = (!!local) ? JSON.parse(local) : {
 						latitude: this.config.latitude,
 						longitude: this.config.longitude,
 						location: this.config.location
 					}
 					// TODO : modify user warning
-					let msg = (local) ? 'Previous cached values' : 'Default values';
+					let msg = (!!local) ? 'Previous cached values' : 'Default values';
 					window.alert( `Error geolocating. ${msg} will be used` )
 				}
 
