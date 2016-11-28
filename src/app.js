@@ -82,15 +82,20 @@ new Vue({
 
 			let lat, lng, loc;
 			const webServiceLocation = function() {
-				ajax()
-				.get('//freegeoip.net/json/')
-				.then( (res, xhr) => {
-					lat = res.latitude,
-					lng = res.longitude,
-					loc = [res.city, res.country_name].join(', ')
-					output()
-				})
-				.catch(()=>{ output() })
+
+				const req = ajax().get('//freegeoip.net/json/')
+				const timeout = setTimeout( () => {
+  						req.abort()
+					}, 5000) // 10 secs
+					req.then((res, xhr) => {
+	  					lat = res.latitude,
+	  					lng = res.longitude,
+	  					loc = [res.city, res.country_name].join(', ')
+	  					output()
+						clearTimeout(timeout)
+	  				})
+					req.catch(()=>{ output() })
+
 			}
 
 			const output = function() {
@@ -140,19 +145,24 @@ new Vue({
 						let url = "https://maps.googleapis.com/maps/api/geocode/json?";
 							url += [`latlng=${lat},${lng}`, 'key=AIzaSyDr5iaE3WgRMxisUCvyKOUhYmPG6y402vI'].join('&');
 
-						ajax()
-						.get(url)
-						.then( (res) => {
-							let response = res.results[0].address_components;
-							let address = [];
-							for ( let i=0; i<response.length; i++ ) {
-								if ( response[i].types[0] == 'locality' ) address.push( response[i].long_name )
-								if ( response[i].types[0] == 'country' ) address.push( response[i].long_name )
-							}
-							loc = ( address.length == 2 ) ? address.join(', ') : res.results[0].formatted_address;
-							output()
-						})
-						.catch(()=>{ output() })
+
+						const req = ajax().get(url)
+						const timeout = setTimeout( () => {
+		  						req.abort()
+							}, 5000)
+							req.then((res) => {
+								let response = res.results[0].address_components;
+								let address = [];
+								for ( let i=0; i<response.length; i++ ) {
+									if ( response[i].types[0] == 'locality' ) address.push( (response[i].long_name != '' ) ? response[i].long_name : 'Somewhere' )
+									if ( response[i].types[0] == 'country' ) address.push( response[i].long_name )
+								}
+								loc = ( address.length == 2 ) ? address.join(', ') : res.results[0].formatted_address;
+								output()
+								clearTimeout(timeout)
+			  				})
+							req.catch(()=>{ output() })
+
 					},
 					(error) => { webServiceLocation() }
 				)

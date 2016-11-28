@@ -62,7 +62,7 @@
 				<ul>
 					<li>Latitude: <strong>{{ geoposition.latitude }}</strong></li>
 					<li>Longitude: <strong>{{ geoposition.longitude }}</strong></li>
-					<li>Location: <strong>{{ geoposition.location }}</strong></li>
+					<li>Location: <strong v-if="geoposition.location">{{ geoposition.location }}</strong></li>
 				</ul>
 				<p>
 					<button @click="forceGeoPosition">Force GeoLocation Request</button>
