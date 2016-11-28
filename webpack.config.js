@@ -16,7 +16,10 @@ module.exports = {
 		      exclude: /(node_modules|bower_components|dist)/,
 		      loader: 'babel-loader',
 		      query: { presets: ['es2015'] }
-		  	}
+		  	},
+			{ test: /\.(eot|ttf|woff)$/,
+              loader: 'file-loader?name=assets/fonts/[name].[ext]&publicPath=../'
+            }
         ]
 	},
 	resolve: {
