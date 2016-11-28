@@ -1,0 +1,28 @@
+CACHE MANIFEST
+
+# Main page
+index.html
+
+# CSS
+dist/app.min.css
+
+# Fonts
+assets/fonts/Oswald-Bold.eot
+assets/fonts/Oswald-Bold.ttf
+assets/fonts/Oswald-Bold.woff
+assets/fonts/Oswald-Light.eot
+assets/fonts/Oswald-Light.ttf
+assets/fonts/Oswald-Light.woff
+assets/fonts/Oswald-Regular.eot
+assets/fonts/Oswald-Regular.ttf
+assets/fonts/Oswald-Regular.woff
+
+# Images
+assets/images/favicon.ico
+assets/images/favicon.png
+
+# JavaScript
+dist/app.min.js
+
+NETWORK:
+*
