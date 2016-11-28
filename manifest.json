@@ -1,0 +1,14 @@
+{
+  "name": "GeoPosition-based Sun Clock",
+  "short_name": "SolWatch",
+  "theme_color": "#222222",
+  "background_color": "#222222",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/?utm_source=homescreen",
+  "icons": [{
+      "src": "assets/images/favicon.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }]
+}
