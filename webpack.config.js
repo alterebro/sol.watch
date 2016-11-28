@@ -16,7 +16,10 @@ module.exports = {
 		      exclude: /(node_modules|bower_components|dist)/,
 		      loader: 'babel-loader',
 		      query: { presets: ['es2015'] }
-		    }
+		  	},
+			{ test: /\.(eot|svg|ttf|woff|woff2)$/,
+			  loader: 'file?name=../[name].[ext]'
+		  	}
         ]
 	},
 	resolve: {
