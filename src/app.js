@@ -33,17 +33,10 @@ new Vue({
 
 		app_ready(val) {
 			if ( val === true ) {
-
-				let data = this.getData()
-				this.cycle = data.cycle
-				this.stages = data.stages
+				this.init_app()
 				this.update()
-
 			} else {
-				// reset
-				this.now = {}
-				this.cycle = {}
-				this.stages = {}
+				this.reset_app()
 			}
 		}
 
@@ -63,6 +56,20 @@ new Vue({
 		}
 	},
 	methods : {
+
+		init_app() {
+
+			let data = this.getData()
+			this.cycle = data.cycle
+			this.stages = data.stages
+			console.log('init yo!')
+		},
+
+		reset_app() {
+			this.now = {}
+			this.cycle = {}
+			this.stages = {}
+		},
 
 		sidebar() {
 
@@ -208,6 +215,9 @@ new Vue({
 				let freeze = Date.now()
 				let degrees = ((freeze - this.cycle.start)/this.cycle.block)
 					degrees = degrees%360;
+
+				// Init when solar day ends
+				if ( (this.cycle.end - freeze) < 0 ) { this.init_app() }
 
 				this.now = {
 					time : freeze,
