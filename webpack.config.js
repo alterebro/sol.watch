@@ -33,6 +33,9 @@ module.exports = {
 			inject: 'body',
 			filename: 'index.html',
 			minify: {collapseWhitespace: true, removeComments: true},
+
+			title: 'SolWatch. GeoPosition-based Sun Clock',
+			description: 'Sol Watch is a Sun clock that calculates the solar phases depending of your current geographical coordinates'
 		}),
 		new ExtractTextPlugin("./dist/app.min.css"),
 		new webpack.optimize.UglifyJsPlugin({
